@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+<form enctype="multipart/form-data" method="post" action="upload">
+<h1>Upload a note, image or a reminder....</h1>
+    <hr/>
+    <hr/>
+<td>Subject        :<input type="text" name="subject" > </td></br></br>
+<td>Note           :<input type="file" name="note"> </td></br></br>
+<td>Upload an image: <input type="file" name="image"></td></br></br>
+    <td >
+        Set Priority:
+        <input type="radio" name="priority" id="option1" value="1">1 </input>
+    <input type="radio" name="priority" id="option2" value="2">2  </input>
+    <input type="radio" name="priority" id="option3" value="3">3 </input>
+    <input type="radio" name="priority" id="option4" value="4">4 </input>
+    <input type="radio" name="priority" id="option5" value="5">5  </input>
+    <input type="radio" name="priority" id="option6" value="6">6 </input>
+        <input type="radio" name="priority" id="option7" value="7">7 </input>
+    <input type="radio" name="priority" id="option8" value="8">8  </input>
+    <input type="radio" name="priority" id="option9" value="9">9 </input>
+    <input type="radio" name="priority" id="option10" value="10">10 </input>
+    </td></br></br>
+    <input type="submit" value="Submit">
+</form>
+<form enctype="multipart/form-data" method="post" action="/see_posts">
+    <hr/>
+    <input type="submit" value="View my Items">
+    <hr/>
+</form>
+</body>
+</html>

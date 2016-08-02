@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<h3>All your items</h3>
+
+<form action="sort_by" enctype="multipart/form-data" method="post">
+<input type="submit" name='submit' value="Sort by date and time"> <input type="submit" name="submit" value="Sort by priority">
+</form>
+</br>
+<form action="search_subject" enctype="multipart/form-data" method="post">
+    <input type="text" name="search_term" placeholder="Enter a subject word">
+ <input type="submit" name="submit" value="Search by Subject">
+</form>
+
+    {% for j in res %}
+    Subject : {{j[0]}} </br>
+    Priority: {{ j[1]}} </br>
+    Uploaded on: {{ j[2] }} at :{{ j[3]}} </br>
+    Contents:</br>
+    {{j[4]}} </br>
+        {%  if j[6] %}
+    <image src="{{ j[6] }}" height="100" width="100"/>
+    </br>
+        {% endif %}
+        <form enctype="multipart/form-data" method="post" action="delete">
+     <input type="submit" value="Delete Item" >
+        <input type="hidden" value="{{j[5]}}" name="delete_id">
+        </form>
+        <hr/>
+    {% endfor %}
+
+
+</body>
+</html>
