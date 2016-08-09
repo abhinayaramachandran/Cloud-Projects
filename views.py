@@ -22,9 +22,9 @@ def home():
 @app.route('/authorize' ,methods=['POST'])
 def user_login():
     global u_id
-    client = MongoClient('mongodb://ds040489.mlab.com:40489/')
+    client = MongoClient('path here/')
     db = client['abhinayadb']
-    db.authenticate('abhinaya', '123')
+    db.authenticate('username', 'password')
     username=request.form['username']
     password=request.form['password']
     collection=db['users']
@@ -42,9 +42,9 @@ def user_login():
 @app.route('/upload' ,methods=['POST'])
 def upload():
     global u_id
-    client = MongoClient('mongodb://ds040489.mlab.com:40489/')
+    client = MongoClient('path here/')
     db = client['abhinayadb']
-    db.authenticate('abhinaya', '123')
+    db.authenticate('username', 'password')
     collection=db['todo']
     subject=request.form['subject']
     note=request.files['note']
@@ -101,9 +101,9 @@ def view():
     user=u_id
     #user=session['_id']
     print user
-    client = MongoClient('mongodb://ds040489.mlab.com:40489/')
+    client = MongoClient('path here/')
     db = client['abhinayadb']
-    db.authenticate('abhinaya', '123')
+    db.authenticate('username', 'password')
     collection = db['todo']
     todos=collection.find({"user":user})
     todo_dict=[]
@@ -147,9 +147,9 @@ def sort_by():
         var='priority'
     user=u_id
     #user = session['_id']
-    client = MongoClient('mongodb://ds040489.mlab.com:40489/')
+    client = MongoClient('path here/')
     db = client['abhinayadb']
-    db.authenticate('abhinaya', '123')
+    db.authenticate('username', 'password')
     collection = db['todo']
     if var=='priority':
         #todos = collection.find({"user": user}).sort([("priority",1)])
@@ -191,9 +191,9 @@ def sort_by():
 def search_subject():
     global u_id
     search_term=request.form['search_term']
-    client = MongoClient('mongodb://ds040489.mlab.com:40489/')
+    client = MongoClient('path here/')
     db = client['abhinayadb']
-    db.authenticate('abhinaya', '123')
+    db.authenticate('username', 'password')
     collection = db['todo']
     todo_dict = []
     i=0
@@ -230,9 +230,9 @@ def search_subject():
 def delete():
     global u_id
     delete_id=request.form['delete_id']
-    client = MongoClient('mongodb://ds040489.mlab.com:40489/')
+    client = MongoClient('path here/')
     db = client['abhinayadb']
-    db.authenticate('abhinaya', '123')
+    db.authenticate('username', 'password')
     collection = db['todo']
     coll=db.count.find_one({"user_id":u_id})
     n=int(coll['count_notes'])
